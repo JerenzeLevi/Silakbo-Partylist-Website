@@ -1,0 +1,582 @@
+/* --- 1. General Reset & Fonts --- */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; 
+    padding: 0;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* --- 2. Header (Logo Fix) --- */
+.site-header {
+    background: linear-gradient(rgba(180, 80, 140, 0.7), rgba(180, 80, 140, 0.7)), 
+                url('scc.png') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.header-content { width: 100%; }
+
+.header-top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.brand-name { 
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-weight: 700; 
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.top-logo { width: 120px; height: auto; }
+
+.tagline { 
+    font-size: 1.2rem; 
+    font-style: italic; 
+    margin-top: 5px;
+}
+
+/* --- 3. Neon Navbar --- */
+.main-nav {
+    background: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #eee;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: #e91e63;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #ff1493; 
+    color: white;
+    box-shadow: 0 0 15px #ff1493;
+    text-shadow: 0 0 8px white;
+    transform: translateY(-2px);
+}
+
+/* --- 4. Pink Hero (Fixed & Cleaned) --- */
+.hero-pink { 
+    background-color: #e91e63; 
+    padding: 80px 0; 
+}
+
+.hero-pink .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.video-trigger { 
+    display: inline-flex; 
+    align-items: center; 
+    cursor: pointer; 
+}
+
+.play-circle {
+    background: white;
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    transition: 0.3s;
+}
+
+.play-icon { color: #e91e63; font-size: 2.5rem; }
+
+.view-label {
+    font-family: 'Bebas Neue', sans-serif;
+    color: white; 
+    font-size: 4rem; 
+    letter-spacing: 3px;
+    margin-left: 20px; 
+    opacity: 0; 
+    transform: translateX(-20px);
+    transition: 0.4s ease;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff1493;
+}
+
+.video-trigger:hover .view-label { opacity: 1; transform: translateX(0); }
+
+.hero-right-img {
+    height: 500px; 
+    width: auto;
+    border-radius: 15px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+/* --- 5. Candidate Layout (Final Layout Fix) --- */
+.candidates { 
+    padding: 60px 0; 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.main-title { 
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: 4.5rem; 
+    letter-spacing: 5px;
+    color: #333;
+    display: inline-block;
+    transform: rotate(-1deg);
+    margin-bottom: 20px;
+}
+
+.section-divider {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #e91e63;
+    text-align: left;
+    border-bottom: 5px solid #e91e63;
+    width: 100%;
+    margin-bottom: 50px;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    
+    /* ADD THESE TWO LINES TO FIX THE SLAMMING */
+    padding-left: 5%; 
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dept-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #e91e63;
+    font-size: 2.2rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #e91e63;
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.candidate-container, .local-department {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.president-row, .candidate-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.candidate-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 260px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+}
+
+.candidate-box img { 
+    width: 100%; 
+    height: 280px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    margin-bottom: 15px; 
+}
+
+.candidate-box p {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ff1493;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.candidate-box:hover {
+    background: #ff1493 !important;
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493, 0 0 80px rgba(255, 20, 147, 0.6);
+}
+
+.candidate-box:hover p {
+    color: white;
+    text-shadow: 0 0 10px white;
+}
+
+/* Specific Glow for CCS */
+.ccs-theme .dept-title { border-bottom-color: #DC143C; color: #DC143C; }
+.ccs-theme .candidate-box:hover {
+    background: #DC143C !important;
+    box-shadow: 0 0 40px #DC143C;
+}
+
+/* Specific Glow for COC */
+.coc-theme .dept-title { border-bottom-color: #39FF14; color: #39FF14; }
+.coc-theme .candidate-box:hover {
+    background: #39FF14 !important;
+    box-shadow: 0 0 40px #39FF14;
+}
+
+/* Specific Glow for CBE */
+.cbe-theme .dept-title { border-bottom-color: #FFFF33; color: #FFFF33; }
+.cbe-theme .candidate-box:hover {
+    background: #FFFF33 !important;
+    box-shadow: 0 0 40px #FFFF33;
+}
+
+/* Specific Glow for CTEAS */
+.cteas-theme .dept-title { border-bottom-color: #1F51FF; color: #1F51FF; }
+.cteas-theme .candidate-box:hover {
+    background: #1F51FF !important;
+    box-shadow: 0 0 40px #1F51FF;
+}
+
+/* --- 6. GLOBAL MEDIA QUERIES --- */
+
+/* Tablet Optimization (Large Tablets & Small Laptops) */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .hero-right-img { height: 400px; } /* Scale down hero image */
+    .view-label { font-size: 3rem; }
+    
+    .candidate-row { 
+        flex-wrap: wrap; /* Allows boxes to wrap to a new line if they hit the edge */
+        justify-content: center;
+    }
+    
+    .candidate-box { width: 220px; } /* Slightly smaller boxes for tablets */
+}
+
+/* --- PHONE RESPONSIVE REPAIR --- */
+@media (max-width: 768px) {
+    /* Stack Platform Boxes Vertically */
+    .platform-container {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .platform-box {
+        width: 100%;
+        max-width: 90%;
+        min-width: unset; /* Allows it to shrink to phone size */
+        padding: 25px;
+    }
+
+    /* Shrink the intro and acronym so they fit on one screen */
+    .platform-intro-special {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .platform-acronym {
+        font-size: 4rem;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
+    }
+
+    .platform-description {
+        text-align: center; /* Safer for small screens than justify */
+        font-size: 0.9rem;
+    }
+
+    .platform-slogan {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+}
+
+/* Fix for Candidate Faces on Phones */
+@media (max-width: 480px) {
+    .candidate-row {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+    .candidate-box {
+        width: 80% !important;
+        margin: 0 auto;
+    }
+    .candidate-box img {
+        height: auto;
+        max-height: 250px;
+    }
+}
+
+/* 3. Global Container Fix */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Use more of the screen on mobile */
+        padding: 0 10px;
+    }
+}
+
+
+/* --- Platforms: The Great Reset --- */
+
+.platform-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0 80px 0;
+    
+    /* ADD THESE TO KEEP IT CENTERED AND ALIGNED */
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%; 
+}
+
+/* 1. The Intro Styling */
+.platform-intro-special {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffb3c1; /* Soft pink */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 1.4;
+    margin: 0 auto 10px auto; /* Centered, tiny bottom margin */
+    max-width: 900px;
+}
+
+.highlight-pink {
+    color: #FF1493 !important; /* Forces Bright Neon Pink */
+    font-weight: 900;
+}
+
+/* 2. The Acronym Centering */
+.platform-acronym {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #FF1493;
+    font-size: clamp(4rem, 15vw, 7rem);
+    letter-spacing: 12px;
+    margin: 0 0 40px 0; /* No top margin to kill the big gap */
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+/* 3. The Boxes Grid - Fixed the "Destroyed" look */
+.platform-container {
+    display: flex;
+    flex-direction: row; /* Force side-by-side */
+    justify-content: center;
+    align-items: stretch; /* Makes all boxes same height */
+    gap: 25px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* --- The Neon Running Border & Heart Hover --- */
+
+.platform-box {
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    border: 3px solid #ffccd5; 
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- TEXT DEFAULT COLORS (Fixes the Black Text) --- */
+.platform-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: #FF1493 !important; /* Force Pink Before Hover */
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative; /* Needed for z-index */
+    z-index: 5; /* Brings text to the very front */
+    transition: 0.4s;
+}
+
+.platform-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #ff85a1 !important; /* Force Soft Pink Before Hover */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    position: relative; /* Needed for z-index */
+    z-index: 5; /* Brings text to the very front */
+    transition: 0.4s;
+}
+
+/* 1. THE NEON RUNNING BORDER EFFECT */
+.platform-box::after {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: transparent;
+    background-image: conic-gradient(transparent, #FF1493, transparent 30%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+/* 2. THE BACKGROUND OVERLAY */
+.platform-box::before {
+    content: '';
+    position: absolute;
+    inset: 4px; /* Thickness of the border */
+    background: white;
+    border-radius: 22px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+/* 3. HOVER ACTIONS */
+.platform-box:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.4);
+    border-color: transparent; 
+}
+
+.platform-box:hover::after {
+    opacity: 1;
+    animation: rotateNeon 2s linear infinite;
+}
+
+.platform-box:hover::before {
+    background: #FF1493; /* BG turns pink on hover */
+}
+
+/* 4. TEXT CHANGES ON HOVER */
+.platform-box:hover .platform-title,
+.platform-box:hover .platform-description {
+    color: white !important; /* Glow White on Hover */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* 5. HEART PARTICLES EFFECT */
+.platform-box:hover .platform-title::after {
+    content: '💖';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    font-size: 1.5rem;
+    animation: heartFloat 1.5s ease-out infinite;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes rotateNeon {
+    100% { transform: rotate(1turn); }
+}
+
+@keyframes heartFloat {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
+}
+
+.platform-slogan {
+    color: #FF1493 !important; 
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    margin-top: 40px;
+}
+
+/* ============================================================
+   FINAL RESPONSIVE OVERRIDES 
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Stack Platform Boxes */
+    .platform-container {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .platform-box {
+        width: 100% !important;
+        max-width: 85% !important; /* Slightly smaller so it doesn't touch edges */
+        min-width: unset !important; 
+        padding: 25px;
+        margin: 0 auto; /* Keeps them centered while stacked */
+    }
+
+    /* 2. Scale down the Neon Text */
+    .platform-acronym {
+        font-size: 4rem !important;
+        letter-spacing: 5px !important;
+    }
+
+    .platform-intro-special {
+        font-size: 0.9rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .platform-description {
+        text-align: center !important; /* Better for small screens */
+    }
+
+    /* 3. Global Container breathing room */
+    .container {
+        width: 92% !important;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 4. Candidate Faces Fix */
+    .candidate-row {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .candidate-box {
+        width: 85% !important;
+        margin: 0 auto;
+    }
+
+    .candidate-box img {
+        height: auto !important;
+        max-height: 280px;
+    }
+
+    .section-divider {
+        font-size: 2.2rem !important;
+    }
+}
