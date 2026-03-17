@@ -1,0 +1,424 @@
+/* --- 1. General Reset & Fonts --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* --- 2. Header & Branding --- */
+.site-header {
+    background: linear-gradient(rgba(180, 80, 140, 0.7), rgba(180, 80, 140, 0.7)),
+        url('scc.png') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.header-content {
+    width: 100%;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.top-logo {
+    width: 120px;
+    height: auto;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* --- 3. Navigation --- */
+.main-nav {
+    background: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e91e63;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #ff1493;
+    color: white;
+    box-shadow: 0 0 15px #ff1493;
+    text-shadow: 0 0 8px white;
+    transform: translateY(-2px);
+}
+
+/* --- 4. Candidate Profiles (Scroll Sections) --- */
+.candidate-profile {
+    padding: 60px 0;
+}
+
+.profile-main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.profile-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+    color: #ff85a1;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+    letter-spacing: 5px;
+}
+
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.profile-row.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 30px;
+    border: 5px solid white;
+    box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15);
+    transition: all 0.4s ease;
+    filter: grayscale(20%);
+}
+
+.profile-image img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
+    border-color: #ff85a1;
+}
+
+.profile-text {
+    flex: 1.5;
+}
+
+.credential-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: #e91e63;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.credential-header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: #ff85a1;
+    border-radius: 10px;
+}
+
+.credential-list {
+    list-style: none;
+    padding: 0;
+}
+
+.credential-list li {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #e91e63;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(233, 30, 99, 0.2);
+    transition: 0.3s;
+}
+
+.credential-list li:hover {
+    padding-left: 10px;
+    color: #ff1493;
+}
+
+.profile-divider {
+    border: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff85a1, transparent);
+    margin: 80px 0;
+}
+
+/* --- Improved Nationals Interactive List (Uniform with Depts) --- */
+.credential-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.credential-list li {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #e91e63; /* Base Pink */
+    padding: 12px 15px; /* Added side padding for hover space */
+    border-bottom: 1px dashed rgba(233, 30, 99, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Matches dept transitions */
+    line-height: 1.5;
+    position: relative;
+}
+
+/* Updated Hover Effect to match Dept uniform style */
+.credential-list li:hover {
+    transform: translateX(15px); /* Uniform movement */
+    color: #ff1493; /* Shifts to brighter Deep Pink */
+    background: rgba(233, 30, 99, 0.05); /* Very subtle pink highlight */
+    border-left: 5px solid #e91e63; /* Pink indicator bar */
+    box-shadow: -5px 0 15px rgba(233, 30, 99, 0.1);
+    cursor: default;
+}
+
+/* --- 5. Interactive Carousel Section --- */
+.carousel-section {
+    padding: 80px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.carousel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #e91e63;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 900px;
+    height: 480px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85%;
+    gap: 30px;
+}
+
+.text-side {
+    text-align: left;
+    flex: 1;
+}
+
+.character-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ff85a1;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.character-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: #e91e63;
+    margin: 10px 0;
+    line-height: 1;
+}
+
+.slide_pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 10px solid white;
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2);
+}
+
+.slide_pic.group-pic {
+    border-radius: 20px;
+    width: 450px;
+    height: 280px;
+}
+
+/* Dots Navigation */
+.dots-container {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #e91e63;
+    width: 30px;
+    border-radius: 10px;
+}
+
+/* --- 6. Responsive Media Queries --- */
+
+/* Tablet and Desktop Small */
+@media (max-width: 850px) {
+    .nav-links { gap: 8px; padding: 0 5px; }
+    .nav-links a { 
+        font-size: 0.9rem; 
+        padding: 8px 15px; 
+        flex: 1 1 40%; 
+        text-align: center;
+    }
+
+    .profile-row { 
+        flex-direction: column !important; 
+        text-align: center; 
+        gap: 30px; 
+        margin-bottom: 60px;
+    }
+
+    /* Keeps image on TOP for reverse rows on mobile */
+    .profile-row.reverse {
+        flex-direction: column-reverse !important;
+    }
+
+    .profile-image img {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .profile-text { width: 100%; }
+
+    .credential-header::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+
+    .site-header { height: 220px; }
+    .brand-name { font-size: 3rem; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .carousel {
+        height: auto;
+        min-height: 600px;
+        width: 95%;
+        padding: 40px 0;
+    }
+
+    .slide-content {
+        flex-direction: column-reverse; 
+        gap: 20px;
+        text-align: center;
+    }
+
+    .text-side { text-align: center; }
+    .character-name { font-size: 2.2rem; }
+    .slide_pic { width: 220px; height: 220px; }
+    .slide_pic.group-pic { width: 95%; height: auto; }
+}
+
+/* Very Small Phones */
+@media (max-width: 400px) {
+    .brand-name { font-size: 2.6rem; }
+    .nav-links a { flex: 1 1 100%; }
+}
+
+/* --- 7. Global Scroll Settings (Placed OUTSIDE media queries) --- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.candidate-profile {
+    /* Prevents the sticky navbar from covering candidate names when clicking links */
+    scroll-margin-top: 100px; 
+}
+
