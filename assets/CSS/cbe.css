@@ -1,0 +1,402 @@
+/* --- 1. General Reset & Fonts --- */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* --- 2. Header (CBE Neon Yellow Theme) --- */
+.site-header {
+    /* Using #FFFF33 with a subtle dark tint for text pop */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                linear-gradient(rgba(255, 255, 51, 0.3), rgba(255, 255, 51, 0.3)),
+                url('scc.png') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-bottom: 5px solid #FFFF33; /* Neon border accent */
+}
+
+.header-content { width: 100%; }
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.brand-name { 
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-weight: 700; margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.top-logo { width: 120px; height: auto; }
+.tagline { font-size: 1.2rem; font-style: italic; margin-top: 5px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+
+/* --- 3. Neon Navbar (Yellow Version) --- */
+.main-nav {
+    background: white; padding: 10px 0;
+    display: flex; justify-content: center;
+    border-bottom: 2px solid #eee;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+/* --- Corrected CBE Hover --- */
+.nav-links a:hover {
+    background: #FFFF33 !important; 
+    color: #ffffff !important; /* Force text to white */
+    box-shadow: 0 0 20px rgba(255, 255, 51, 0.8); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Makes white text visible on yellow */
+    transform: translateY(-2px);
+    transition: all 0.3s ease; /* Makes the color change smooth */
+}
+
+/* --- 4. Candidate Profiles --- */
+.candidate-profile { padding: 60px 0; scroll-margin-top: 80px; }
+
+.profile-main-title { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #b39b00; text-align: center; margin-bottom: 5px;
+    text-shadow: 1px 1px 0px #FFFF33; /* Subtle neon rim */
+}
+
+.profile-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; font-weight: 800; text-align: center;
+    color: #8c7a00; 
+    text-transform: uppercase; margin-bottom: 80px; letter-spacing: 5px;
+}
+
+.profile-row {
+    display: flex; align-items: center; gap: 60px; margin-bottom: 100px;
+    opacity: 0; transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.profile-row.reverse { flex-direction: row; }
+.profile-row.is-visible { opacity: 1; transform: translateY(0); }
+
+.profile-image img {
+    width: 100%; max-width: 380px; border-radius: 30px;
+    border: 5px solid white; 
+    box-shadow: 0 10px 30px rgba(255, 255, 51, 0.5); /* Stronger Neon Glow */
+    transition: 0.4s;
+}
+
+.profile-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(255, 255, 51, 0.8);
+}
+
+.credential-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; color: #b39b00;
+    margin-bottom: 20px; position: relative; display: inline-block;
+}
+
+.credential-header::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 60%; height: 4px; background: #FFFF33; border-radius: 10px;
+    box-shadow: 0 0 10px #FFFF33;
+}
+
+.credential-list { list-style: none; padding: 0; }
+.credential-list li {
+    font-size: 1.1rem; color: #444; padding: 12px 0;
+    border-bottom: 1px dashed rgba(255, 255, 51, 0.6);
+    transition: 0.3s;
+}
+
+/* --- 1. General Reset & Fonts --- */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* --- 2. Header (CBE Neon Yellow Theme) --- */
+.site-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                linear-gradient(rgba(255, 255, 51, 0.2), rgba(255, 255, 51, 0.2)),
+                url('scc.png') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-bottom: 5px solid #FFFF33;
+}
+
+.header-content { width: 100%; }
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.brand-name { 
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-weight: 700; margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.top-logo { width: 120px; height: auto; }
+.tagline { font-size: 1.2rem; font-style: italic; margin-top: 5px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+
+/* --- 3. Neon Navbar (Yellow Version) --- */
+.main-nav {
+    background: white; padding: 10px 0;
+    display: flex; justify-content: center;
+    border-bottom: 2px solid #eee;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: #b39b00; 
+    font-weight: 800; font-size: 1.1rem;
+    padding: 10px 20px; border-radius: 8px;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #FFFF33; 
+    color: #000; /* Black text on yellow for readability */
+    box-shadow: 0 0 15px #FFFF33;
+    transform: translateY(-2px);
+}
+
+/* --- 4. Candidate Profiles --- */
+.candidate-profile { padding: 60px 0; scroll-margin-top: 80px; }
+
+.profile-main-title { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #b39b00; text-align: center; margin-bottom: 5px;
+    text-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.1); 
+}
+
+.profile-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; font-weight: 800; text-align: center;
+    color: #8c7a00; 
+    text-transform: uppercase; margin-bottom: 80px; letter-spacing: 5px;
+}
+
+.profile-row {
+    display: flex; align-items: center; gap: 60px; margin-bottom: 100px;
+    opacity: 0; transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.profile-row.is-visible { opacity: 1; transform: translateY(0); }
+
+.profile-image img {
+    width: 100%; max-width: 380px; border-radius: 30px;
+    border: 5px solid white; 
+    box-shadow: 0 10px 30px rgba(255, 255, 51, 0.4); 
+    transition: 0.4s;
+}
+
+.credential-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; color: #b39b00;
+    margin-bottom: 20px; position: relative; display: inline-block;
+}
+
+.credential-header::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 60%; height: 4px; background: #FFFF33; border-radius: 10px;
+    box-shadow: 0 0 10px #FFFF33;
+}
+
+* --- Modified CBE Credential List with Interactive Movement --- */
+.credential-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.credential-list li {
+    font-size: 1.1rem; 
+    color: #b39b00; 
+    padding: 12px 15px; /* Side padding for better hover space */
+    border-bottom: 1px dashed rgba(255, 255, 51, 0.6);
+    transition: all 0.3s ease; /* Smooth "moving" transition */
+    line-height: 1.5;
+    position: relative;
+}
+
+/* The interactive "move a lil" hover effect */
+.credential-list li:hover {
+    transform: translateX(10px); /* Moves text to the right */
+    background: rgba(255, 255, 51, 0.1); /* Subtle yellow highlight */
+    color: #b39b00; /* Darker yellow text on hover */
+    border-left: 4px solid #FFFF33; /* Neon yellow interactive bar */
+    box-shadow: -5px 0 15px rgba(255, 255, 51, 0.3); /* Soft glow on the left */
+}
+
+/* --- 5. Carousel (Perfected Yellow Theme) --- */
+.carousel-section { padding: 80px 0; background: #fff; text-align: center; }
+
+.carousel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #b39b00; 
+    font-size: 3rem; margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative; max-width: 900px; 
+    height: 550px; /* Safe zone for long taglines */
+    margin: 0 auto; overflow: hidden; border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(255, 255, 51, 0.3);
+    border: 1px solid rgba(255, 255, 51, 0.2);
+}
+
+.slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.8s; }
+.slide.active { opacity: 1; }
+
+.slide-content { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 90%; 
+    gap: 40px; 
+}
+
+.text-side {
+    text-align: left;
+    max-width: 450px;
+    flex: 1;
+}
+
+.character-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.character-name { 
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: clamp(2.5rem, 5vw, 3.8rem); 
+    color: #b39b00; 
+    margin: 0; 
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* FIXED IMAGE SIZE */
+.slide_pic { 
+    width: 320px; 
+    height: 320px; 
+    flex-shrink: 0; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 10px solid white; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.slide_pic.group-pic { border-radius: 20px; width: 450px; height: 280px; }
+
+.dots-container { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+.dot { width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer; }
+.dot.active { 
+    background: #FFFF33; 
+    width: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 8px #FFFF33; 
+}
+
+/* --- ENHANCED RESPONSIVE (CBE Version) --- */
+@media (max-width: 850px) {
+    /* 1. Header & Brand Adjustments */
+    .brand-name { font-size: 3.5rem; }
+    .top-logo { width: 80px; }
+    .site-header { height: 250px; }
+
+    /* 2. Navbar Mobile Flow */
+    .nav-links { gap: 5px; padding: 0 10px; }
+    .nav-links a { 
+        font-size: 0.9rem; 
+        padding: 8px 12px; 
+    }
+
+    /* 3. Profile Rows (Force Vertical Stack) */
+    .profile-row, 
+    .profile-row.reverse { 
+        flex-direction: column !important; /* Forces image on TOP, text below */
+        text-align: center; 
+        gap: 30px;
+        margin-bottom: 60px;
+        align-items: center; /* Centering looks better on mobile vertical stack */
+    }
+
+    /* Keep the image from being too huge on mobile */
+    .profile-image img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* 4. Carousel Mobile Fix */
+    .carousel { height: auto; min-height: 600px; padding: 40px 0; }
+    
+    .slide-content { 
+        flex-direction: column-reverse; 
+        text-align: center;
+        gap: 25px;
+    }
+
+    .text-side { text-align: center; width: 100%; }
+    .slide_pic { width: 220px; height: 220px; }
+    .slide_pic.group-pic { width: 90%; height: auto; }
+    
+    .character-name { font-size: 2.2rem; }
+    .credential-header { font-size: 2.2rem; }
+}
+
+/* Extra small phones fix */
+@media (max-width: 480px) {
+    .brand-name { font-size: 2.8rem; }
+    .tagline { font-size: 1rem; }
+    .nav-links a { width: 45%; text-align: center; } /* Creates a 2x2 grid for links */
+}
+
+/* --- Tablet Optimization (Large Tablets & Small Laptops) --- */
+@media (max-width: 1100px) and (min-width: 851px) {
+    .container {
+        width: 95%; /* Give more breathing room on the sides */
+    }
+
+    .profile-row {
+        gap: 30px; /* Shrink gap so text doesn't get too thin */
+    }
+
+    .profile-image img {
+        max-width: 300px; /* Scale image down slightly */
+    }
+
+    .credential-header {
+        font-size: 2.2rem; /* Shrink headers so they don't wrap weirdly */
+    }
+
+    .carousel {
+        max-width: 95%;
+    }
+}
