@@ -1,0 +1,356 @@
+/* --- 1. General Reset & Fonts --- */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* --- 2. Header (COC Neon Green Theme) --- */
+.site-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                linear-gradient(rgba(57, 255, 20, 0.3), rgba(57, 255, 20, 0.3)),
+                url('scc.png') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-bottom: 5px solid #39FF14;
+}
+
+.header-content { width: 100%; }
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.brand-name { 
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-weight: 700; margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.top-logo { width: 120px; height: auto; }
+.tagline { font-size: 1.2rem; font-style: italic; margin-top: 5px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+
+/* --- 3. Neon Navbar (Green Version) --- */
+.main-nav {
+    background: white; padding: 10px 0;
+    display: flex; justify-content: center;
+    border-bottom: 2px solid #eee;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: #39FF14; 
+    font-weight: 800; font-size: 1.1rem;
+    padding: 10px 20px; border-radius: 8px;
+    /* Subtle shadow to make neon green readable on white */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #39FF14; 
+    color: white; 
+    box-shadow: 0 0 15px #39FF14;
+    text-shadow: 0 0 8px white;
+    transform: translateY(-2px);
+}
+
+/* --- 4. Candidate Profiles --- */
+.candidate-profile { padding: 60px 0; scroll-margin-top: 80px; }
+
+.profile-main-title { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #39FF14; text-align: center; margin-bottom: 5px;
+    text-shadow: 1.5px 1.5px 3px rgba(0,0,0,0.2); 
+}
+
+.profile-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; font-weight: 800; text-align: center;
+    color: #2ebc10; /* Slightly deeper green for reading subtitles */
+    text-transform: uppercase; margin-bottom: 80px; letter-spacing: 5px;
+}
+
+/* --- 4. Candidate Profiles --- */
+.profile-row {
+    display: flex; 
+    align-items: flex-start; /* Keeps image & text aligned at the top */
+    gap: 60px; 
+    margin-bottom: 100px;
+    opacity: 0; 
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+}
+
+/* Normal Row (Image Left, Text Right) */
+.profile-row {
+    flex-direction: row;
+}
+
+/* Reverse Row (Text Left, Image Right) */
+.profile-row.reverse {
+    flex-direction: row; /* Keep order: Text then Image */
+    justify-content: space-between; /* Pushes them to opposite edges */
+}
+
+/* This is the key: Flex-grow makes the text fill all empty space */
+.profile-text {
+    flex: 1; 
+}
+
+.profile-image {
+    flex-shrink: 0; /* Prevents the image from getting squished */
+}
+
+.profile-row.is-visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.profile-image img {
+    width: 100%; max-width: 380px; border-radius: 30px;
+    border: 5px solid white; 
+    box-shadow: 0 10px 30px rgba(57, 255, 20, 0.4); 
+    transition: 0.4s;
+}
+
+.profile-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(57, 255, 20, 0.7);
+}
+
+.credential-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; color: #39FF14;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 20px; position: relative; display: inline-block;
+}
+
+.credential-header::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 60%; height: 4px; background: #39FF14; border-radius: 10px;
+    box-shadow: 0 0 10px #39FF14;
+}
+
+.credential-list li {
+    font-size: 1.1rem; color: #444; padding: 12px 0;
+    border-bottom: 1px dashed rgba(57, 255, 20, 0.5);
+    transition: 0.3s;
+}
+
+/* --- COC Interactive Credential List (Neon Green) --- */
+.credential-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.credential-list li {
+    font-size: 1.1rem; 
+    color: #2ebc10; /* Base dark gray for readability */
+    padding: 12px 15px; 
+    border-bottom: 1px dashed rgba(57, 255, 20, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy "pop" effect */
+    line-height: 1.5;
+}
+
+/* The interactive "move a lil" hover effect */
+.credential-list li:hover {
+    transform: translateX(15px); /* Stronger slide for the "tech/action" theme */
+    color: #2ebc10; /* Slightly deeper green on hover */
+    background: rgba(57, 255, 20, 0.08); /* Subtle green glow highlight */
+    border-left: 5px solid #39FF14; /* Neon Green indicator bar */
+    box-shadow: -5px 0 15px rgba(57, 255, 20, 0.2); 
+    cursor: default;
+}
+
+/* --- 5. Carousel (COC Neon Green Theme) --- */
+.carousel-section { padding: 80px 0; background: #fff; text-align: center; }
+
+.carousel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #39FF14; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 3rem; margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative; max-width: 900px; 
+    height: 550px; /* Safe height for long text */
+    margin: 0 auto; overflow: hidden; border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(57, 255, 20, 0.3);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+}
+
+.slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.8s; }
+.slide.active { opacity: 1; }
+
+.slide-content { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 90%; 
+    gap: 40px; 
+}
+
+/* Text Side - Aligns with your HTML <div> */
+.text-side {
+    text-align: left;
+    max-width: 450px;
+    flex: 1;
+}
+
+.character-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.character-name { 
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: clamp(2.5rem, 5vw, 3.8rem); 
+    color: #39FF14; 
+    margin: 0; 
+    line-height: 1;
+    text-shadow: 1.5px 1.5px 3px rgba(0,0,0,0.2);
+}
+
+/* FIXED IMAGE SIZE - No shrinking allowed */
+.slide_pic { 
+    width: 320px; 
+    height: 320px; 
+    flex-shrink: 0; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 10px solid white; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.slide_pic.group-pic { border-radius: 20px; width: 450px; height: 280px; }
+
+.dots-container { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+.dot { width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer; }
+.dot.active { 
+    background: #39FF14; 
+    width: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 8px #39FF14; 
+}
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 850px) {
+    /* 1. Navbar: Prevents links from overflowing */
+    .nav-links {
+        gap: 8px;
+        padding: 0 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        flex: 1 1 40%; /* Creates a neat 2-column grid on mobile */
+        text-align: center;
+    }
+
+    /* 2. Profiles: Force Vertical Stacking */
+    .profile-row, 
+    .profile-row.reverse { 
+        flex-direction: column !important; /* Forces Image-then-Text stack */
+        align-items: center; 
+        text-align: center;
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+
+    /* In your HTML, reverse rows have Text first. 
+       This CSS flips it so the Image is always on TOP on mobile. */
+    .profile-row.reverse {
+        flex-direction: column-reverse !important; 
+    }
+
+    .profile-image img {
+        max-width: 280px; /* Smaller images for mobile screens */
+        margin: 0 auto;
+    }
+
+    .profile-text {
+        width: 100%;
+    }
+
+    /* Center the green underline for centered mobile text */
+    .credential-header::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+
+    /* 3. Carousel: Adjust height for stacked mobile content */
+    .carousel {
+        height: auto;
+        min-height: 580px;
+        padding: 30px 0;
+    }
+
+    .slide-content {
+        flex-direction: column-reverse; /* Put picture above the name */
+        gap: 20px;
+    }
+
+    .slide_pic {
+        width: 220px;
+        height: 220px;
+    }
+
+    .slide_pic.group-pic {
+        width: 90%;
+        height: auto;
+    }
+
+    .character-name {
+        font-size: 2.2rem;
+    }
+}
+
+/* Extra fix for very small phones (iPhone SE size) */
+@media (max-width: 400px) {
+    .brand-name { font-size: 2.8rem; }
+    .nav-links a { flex: 1 1 100%; } /* Stacks menu links in one column */
+}
+
+/* --- Tablet Optimization (Large Tablets & Small Laptops) --- */
+@media (max-width: 1100px) and (min-width: 851px) {
+    .container {
+        width: 95%; /* Give more breathing room on the sides */
+    }
+
+    .profile-row {
+        gap: 30px; /* Shrink gap so text doesn't get too thin */
+    }
+
+    .profile-image img {
+        max-width: 300px; /* Scale image down slightly */
+    }
+
+    .credential-header {
+        font-size: 2.2rem; /* Shrink headers so they don't wrap weirdly */
+    }
+
+    .carousel {
+        max-width: 95%;
+    }
+}
